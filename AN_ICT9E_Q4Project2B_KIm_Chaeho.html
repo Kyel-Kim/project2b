@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercise 4</title>
+	<style>
+		body {
+			color: grey;
+		    
+        }
+        .container {
+        	background-color: grey;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			min-height: 100vh;
+			}
+		h1 {
+			
+			color: aliceblue;
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+			color: #333;
+		}
+		input {
+			padding: 5px;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			margin-bottom: 10px;
+			width: 200px;
+		}
+		button {
+			background-color: lightgrey;
+			color: #fff;
+			padding: 10px;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+		p {
+			margin-top: 20px;
+			font-size: 18px;
+			color: #333;
+		}
+        .result-box {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 10px;
+            width: 300px;
+            text-align: center;
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Unit Converter</h1>
+		<div class="result-box">
+			<label for="value">Type Desired value:</label>
+			<input type="number" id="value" name="value" placeholder="enter value here" />
+			<br/>
+			<label for="unit">Select the unit you want to convert to:</label>
+			<select id="unit" name="unit">
+				<option value="millimeters">Millimeters</option>
+				<option value="centimeters">Centimeters</option>
+				<option value="meters">Meters</option>
+				<option value="kilometers">Kilom
+				eters</option>
+
+			</select>
+			<br />
+			
+			<label>The converted value is:</label>
+			<input type="text" id="convertedValue" name="convertedValue" readonly />
+			<br />
+			<button onclick="convert()">Convert</button>
+		</div>
+		<script>
+			function convert() {
+				let value = document.getElementById("value").value;
+				let unit = document.getElementById("unit").value;
+				let desiredValue = "";
+				let convertedValue = 0;
+
+				switch(unit) {
+					case "millimeters":
+						convertedValue = value;
+						break;
+					case "centimeters":
+						convertedValue = value * 10;
+						break;
+					case "meters":
+						convertedValue = value * 1000;
+						break;
+					case "kilometers":
+					     convertedValue = value * 1000000
+				}
+
+				desiredValue = value + " " + unit.charAt(0).toUpperCase() + unit.slice(1);
+				
+				document.getElementById("convertedValue").value = convertedValue;
+			}
+		</script>
+	</div>
+</body>
+</html>
